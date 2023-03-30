@@ -1,5 +1,6 @@
 package br.com.alura.leilao.ui.recyclerview.adapter;
 
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -49,11 +50,13 @@ public class ListaLeilaoAdapter extends RecyclerView.Adapter<ListaLeilaoAdapter.
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView descricao;
+        private final TextView maiorLance;
         private Leilao leilao;
 
         ViewHolder(View itemView) {
             super(itemView);
             descricao = itemView.findViewById(R.id.item_leilao_descricao);
+            maiorLance = itemView.findViewById(R.id.item_leilao_maior_lance);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -65,8 +68,8 @@ public class ListaLeilaoAdapter extends RecyclerView.Adapter<ListaLeilaoAdapter.
         void vincula(Leilao leilao) {
             this.leilao = leilao;
             descricao.setText(leilao.getDescricao());
+            maiorLance.setText(String.valueOf(leilao.getMaiorLance()));
         }
-
     }
 
     public Leilao pegaLeilaoPorPosicao(int posicao) {
